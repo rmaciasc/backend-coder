@@ -1,9 +1,10 @@
+const path = require('path');
 const express = require('express');
 const faker = require('faker');
 const normalizr = require('normalizr');
 const normalize = normalizr.normalize;
 const schema = normalizr.schema;
-const print = require('./tools');
+const handlebars = require('express-handlebars');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
@@ -16,13 +17,22 @@ const { Server: Socket } = require('socket.io');
 const ContenedorSQL = require('./contenedores/ContenedorSQL.js');
 const ContenedorFirebase = require('./contenedores/ContenedorFirebase');
 const config = require('./config.js');
-
 faker.locale = 'es';
-
 //--------------------------------------------
 // instancio servidor, socket y api
 
 const app = express();
+app.engine(
+  'hbs',
+  handlebars({
+    extname: '.hbs',
+    layoutsDir: process.cwd() + '/views/pages',
+    defaultLayout: false,
+  })
+);
+app.set('views', path.join(process.cwd(), 'views', 'pages'));
+app.set('view engine', 'hbs');
+
 const httpServer = new HttpServer(app);
 const io = new Socket(httpServer);
 
@@ -61,13 +71,13 @@ io.on('connection', async (socket) => {
   socket.on('addProduct', async (newProd) => {
     const _ = await productosApi.guardar(newProd);
     const productos = await productosApi.listarAll();
-    console.log(productos);
+    console.log('productos', productos);
     io.sockets.emit('productos', productos);
   });
 
   // carga inicial de mensajes
   const mensajes = await mensajesApi.listarAll();
-  console.log(mensajes);
+  console.log('mensajes', mensajes);
   const mensajesN = normalize(mensajes, [postSchema]);
   socket.emit('mensajes', mensajesN);
   // actualizacion de mensajes
@@ -96,7 +106,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      maxAge: 4,
+      maxAge: 60000,
     },
   })
 );
@@ -114,6 +124,30 @@ app.get('/api/productos-test', (req, res) => {
   res.send(productos);
 });
 
+app.post('/login', (req, res) => {
+  console.log('Trying to login user', req.body.name);
+  if (!req.session.name && req.body.name) {
+    req.session.name = req.body.name;
+  }
+  res.render('main', { name: req.session.name });
+});
+
+app.get('/', (req, res) => {
+  if (!req.session.name) {
+    res.redirect('/login');
+  } else {
+    res.render('main', { name: req.session.name });
+  }
+});
+
+app.get('/login', (req, res) => {
+  res.sendFile('login.html', { root: __dirname });
+});
+const getSessionName = (req) => req.session.name ?? '';
+app.get('/logout', (req, res) => {
+  res.render('logout', { name: getSessionName(req) });
+  req.session.destroy();
+});
 //--------------------------------------------
 // inicio el servidor
 

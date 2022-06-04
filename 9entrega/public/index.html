@@ -23,6 +23,15 @@
   </head>
 
   <body>
+        <div class="container mt-3" id="bienvenida">
+          <h1 class="alert alert-success">
+            Bienvenide, <%= nombre %>
+              <button class="btn btn-warning float-right mt-2" onclick="location.href='/logout'">
+                Desloguear
+              </button>
+          </h1>
+        </div>
+
     <div class="container mt-3">
       <div class="jumbotron">
         <h1>Ingrese Producto</h1>

@@ -85,13 +85,13 @@ formPublicarMensaje.addEventListener('submit', (e) => {
 });
 
 socket.on('mensajes', async (mensajesN) => {
-  // console.log(mensajesN);
+  console.log(mensajesN);
   const mensajesD = denormalize(
     mensajesN.result,
     [postSchema],
     mensajesN.entities
   );
-  // console.log('denorm front', mensajesD);
+  console.log('denorm front', mensajesD);
   const html = await makeHtmlList(mensajesD);
   const lenMensajesD = JSON.stringify(mensajesD).length;
   const lenMensajesN = JSON.stringify(mensajesN).length;
