@@ -1,0 +1,8 @@
+{{#if mensajes}}
+  {{#each mensajes}}
+    <p><strong style='color: blue'>{{this.mail}}</strong>
+      <span style='color: brown'>[{{this.date}}]</span>:
+      <span style='font-style: italic; color: green'>{{this.message}}</span></p>
+    <br />
+  {{/each}}
+{{/if}}
