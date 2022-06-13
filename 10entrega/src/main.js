@@ -50,24 +50,16 @@ const productosApi = new ContenedorSQL(config.mariaDb, 'productos');
 const mensajesApi = new ContenedorFirebase('mensajes');
 
 //--------------------------------------------
-// Connect to DB
-controllersdb.conectarDB(config.URL_BASE_DE_DATOS, (err) => {
-  if (err) {
-    console.log(err);
-  }
-  console.log('Base de datos conectada');
-});
-
-//--------------------------------------------
 // instancio passport
 passport.use(
   'login',
-  new LocalStrategy((username, password, done) => {
-    User.findOne({ username: username }, (err, user) => {
+  new LocalStrategy((email, password, done) => {
+    User.findOne({ email }, (err, user) => {
       if (err) {
         return done(err);
       }
       if (!user) {
+        console.log('Email not found', email);
         return done(null, false, { message: 'Incorrect username.' });
       }
       if (!isValidPassword(user, password)) {
@@ -249,7 +241,16 @@ app.get('/logout', routes.getLogout);
 //--------------------------------------------
 // inicio el servidor
 
+//--------------------------------------------
+// Connect to DB
 const PORT = 8080;
+controllersdb.conectarDB(config.URL_BASE_DE_DATOS, (err) => {
+  if (err) {
+    console.log(err);
+  }
+  console.log('Base de datos conectada');
+});
+
 const connectedServer = httpServer.listen(PORT, () => {
   console.log(
     `Servidor http escuchando en el puerto ${connectedServer.address().port}`
