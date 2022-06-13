@@ -12,7 +12,7 @@ const session = require('express-session');
 
 const bcrypt = require('bcrypt');
 const passport = require('passport');
-const LocalStrategy = require('passport-local');
+const LocalStrategy = require('passport-local').Strategy;
 
 const routes = require('./routes');
 const controllersdb = require('./controllersdb');
@@ -53,8 +53,8 @@ const mensajesApi = new ContenedorFirebase('mensajes');
 // instancio passport
 passport.use(
   'login',
-  new LocalStrategy((email, password, done) => {
-    User.findOne({ email }, (err, user) => {
+  new LocalStrategy((username, password, done) => {
+    User.findOne({ username: username }, (err, user) => {
       if (err) {
         return done(err);
       }
@@ -192,9 +192,9 @@ app.use(
     },
   })
 );
+// inicio el servidor
 app.use(passport.initialize());
 app.use(passport.session());
-
 function checkAuthentication(req, res, next) {
   if (req.isAuthenticated()) {
     next();
@@ -237,9 +237,6 @@ app.get('/failsignup', routes.getFailSignup);
 
 const getSessionName = (req) => req.session.name ?? '';
 app.get('/logout', routes.getLogout);
-
-//--------------------------------------------
-// inicio el servidor
 
 //--------------------------------------------
 // Connect to DB

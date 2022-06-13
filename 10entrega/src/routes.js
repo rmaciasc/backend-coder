@@ -22,7 +22,8 @@ function getSignup(req, res) {
 }
 
 function postLogin(req, res) {
-  res.sendFile('index.html');
+  const user = req.user;
+  res.render('main', { name: user.username, email: user.email });
 }
 
 function postSignup(req, res) {
