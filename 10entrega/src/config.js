@@ -16,7 +16,7 @@ module.exports = {
       port: 3306,
     },
   },
-  TIEMPO_EXPIRACION: 20000,
+  TIEMPO_EXPIRACION: 60000,
   URL_BASE_DE_DATOS:
     'mongodb+srv://rmacias:LXkNcbolg0BPR1Ne@cluster0.se8cs.mongodb.net/?retryWrites=true&w=majority',
 };

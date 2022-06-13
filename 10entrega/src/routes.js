@@ -1,5 +1,5 @@
 function getRoot(req, res) {
-  res.send('Bienvenido');
+  res.redirect('/welcome.html');
 }
 
 //LOGIN
@@ -9,13 +9,11 @@ function getLogin(req, res) {
     console.log('user logueado');
     res.render('login-ok', {
       usuario: user.username,
-      nombre: user.firstName,
-      apellido: user.lastName,
       email: user.email,
     });
   } else {
     console.log('user no logueado');
-    res.sendFile(__dirname + '/views/login.html');
+    res.redirect('/login.html');
   }
 }
 
@@ -24,24 +22,25 @@ function getSignup(req, res) {
 }
 
 function postLogin(req, res) {
-  res.sendFile(__dirname + '/views/index.html');
+  res.sendFile('index.html');
 }
 
 function postSignup(req, res) {
-  res.sendFile(__dirname + '/views/index.html');
+  const user = req.user;
+  res.render('main', { name: user.username, email: user.email });
 }
 
 function getFailLogin(req, res) {
   res.render('login-error', {});
 }
 
-function getFailsignup(req, res) {
+function getFailSignup(req, res) {
   res.render('signup-error', {});
 }
 
 function getLogout(req, res) {
   req.logout();
-  res.sendFile(__dirname + '/views/index.html');
+  res.redirect('/');
 }
 
 function failRoute(req, res) {
@@ -54,7 +53,7 @@ module.exports = {
   postLogin,
   postSignup,
   getFailLogin,
-  getFailsignup,
+  getFailSignup,
   getLogout,
   failRoute,
   getRoot,

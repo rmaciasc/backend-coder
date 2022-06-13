@@ -1,12 +1,22 @@
 const path = require('path');
 const express = require('express');
+
 const faker = require('faker');
 const normalizr = require('normalizr');
 const normalize = normalizr.normalize;
 const schema = normalizr.schema;
+
 const handlebars = require('express-handlebars');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+
+const bcrypt = require('bcrypt');
+const passport = require('passport');
+const LocalStrategy = require('passport-local');
+
+const routes = require('./routes');
+const controllersdb = require('./controllersdb');
+const User = require('./models');
 
 const MongoStore = require('connect-mongo');
 const advancedOptions = { useNewUrlParser: true, useUnifiedTopology: true };
@@ -38,6 +48,84 @@ const io = new Socket(httpServer);
 
 const productosApi = new ContenedorSQL(config.mariaDb, 'productos');
 const mensajesApi = new ContenedorFirebase('mensajes');
+
+//--------------------------------------------
+// Connect to DB
+controllersdb.conectarDB(config.URL_BASE_DE_DATOS, (err) => {
+  if (err) {
+    console.log(err);
+  }
+  console.log('Base de datos conectada');
+});
+
+//--------------------------------------------
+// instancio passport
+passport.use(
+  'login',
+  new LocalStrategy((username, password, done) => {
+    User.findOne({ username: username }, (err, user) => {
+      if (err) {
+        return done(err);
+      }
+      if (!user) {
+        return done(null, false, { message: 'Incorrect username.' });
+      }
+      if (!isValidPassword(user, password)) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+      return done(null, user);
+    });
+  })
+);
+
+passport.use(
+  'signup',
+  new LocalStrategy(
+    { passReqToCallback: true },
+    (req, username, password, done) => {
+      User.findOne({ username: username }, (err, user) => {
+        if (err) {
+          return done(err);
+        }
+        if (user) {
+          return done(null, false, { message: 'Username already exists.' });
+        }
+        const newUser = {
+          username: username,
+          password: createHash(password),
+          email: req.body.email,
+        };
+
+        User.create(newUser, (err, user) => {
+          if (err) {
+            return done(err);
+          }
+          return done(null, user);
+        });
+      });
+    }
+  )
+);
+
+passport.serializeUser((user, done) => {
+  done(null, user._id);
+});
+
+passport.deserializeUser((id, done) => {
+  User.findById(id, (err, user) => {
+    done(err, user);
+  });
+});
+
+//--------------------------------------------
+// Bcrypt isValidPassword
+const isValidPassword = (user, password) => {
+  return bcrypt.compareSync(password, user.password);
+};
+
+const createHash = (password) => {
+  return bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
+};
 
 //--------------------------------------------
 // NORMALIZACIÓN DE MENSAJES
@@ -106,10 +194,22 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      maxAge: 60000,
+      maxAge: config.TIEMPO_EXPIRACION,
+      httpOnly: false,
+      secure: false,
     },
   })
 );
+app.use(passport.initialize());
+app.use(passport.session());
+
+function checkAuthentication(req, res, next) {
+  if (req.isAuthenticated()) {
+    next();
+  } else {
+    res.redirect('/login');
+  }
+}
 //--------------------------------------------
 
 app.get('/api/productos-test', (req, res) => {
@@ -124,30 +224,28 @@ app.get('/api/productos-test', (req, res) => {
   res.send(productos);
 });
 
-app.post('/login', (req, res) => {
-  console.log('Trying to login user', req.body.name);
-  if (!req.session.name && req.body.name) {
-    req.session.name = req.body.name;
-  }
-  res.render('main', { name: req.session.name });
-});
+app.get('/', routes.getRoot);
+//LOGIN
+app.get('/login', routes.getLogin);
+app.post(
+  '/login',
+  passport.authenticate('login', { failureRedirect: '/faillogin' }),
+  routes.postLogin
+);
+app.get('/faillogin', routes.getFailLogin);
 
-app.get('/', (req, res) => {
-  if (!req.session.name) {
-    res.redirect('/login.html');
-  } else {
-    res.render('main', { name: req.session.name });
-  }
-});
+//REGISTER
+app.get('/signup', routes.getSignup);
+app.post(
+  '/signup',
+  passport.authenticate('signup', { failureRedirect: '/failsignup' }),
+  routes.postSignup
+);
+app.get('/failsignup', routes.getFailSignup);
 
-// app.get('/login', (req, res) => {
-//   res.sendFile('login.html', { root: '/public' });
-// });
 const getSessionName = (req) => req.session.name ?? '';
-app.get('/logout', (req, res) => {
-  res.render('logout', { name: getSessionName(req) });
-  req.session.destroy();
-});
+app.get('/logout', routes.getLogout);
+
 //--------------------------------------------
 // inicio el servidor
 
