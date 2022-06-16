@@ -1,3 +1,4 @@
+const yargs = require('yargs/yargs')(process.argv.slice(2));
 const path = require('path');
 const express = require('express');
 
@@ -28,6 +29,15 @@ const ContenedorSQL = require('./contenedores/ContenedorSQL.js');
 const ContenedorFirebase = require('./contenedores/ContenedorFirebase');
 const config = require('./config.js');
 faker.locale = 'es';
+
+//--------------------------------------------
+// Yargs
+const args = yargs
+  .default({
+    PORT: 8080,
+  })
+  .alias({ p: 'PORT' }).argv;
+
 //--------------------------------------------
 // instancio servidor, socket y api
 
@@ -238,9 +248,15 @@ app.get('/failsignup', routes.getFailSignup);
 const getSessionName = (req) => req.session.name ?? '';
 app.get('/logout', routes.getLogout);
 
+//INFO
+app.get('/info', routes.getinfo);
+
+// Child process
+app.get('/api/randoms', routes.getRandoms);
+
 //--------------------------------------------
 // Connect to DB
-const PORT = 8080;
+const PORT = args.PORT;
 controllersdb.conectarDB(config.URL_BASE_DE_DATOS, (err) => {
   if (err) {
     console.log(err);
