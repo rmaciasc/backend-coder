@@ -6,5 +6,5 @@ forever start src/main.js -m CLUSTER -p 8080
 PS taskkill /pid <PID> /f
 
 pm2 start src/main.js --name="server-fork" --watch -- 8080
-pm2 start src/main.js --name="server-fork" --watch -i max -- 8080
+pm2 start src/main.js --name="server-cluster" --watch -i max -- 8080
 pm2 delete all
