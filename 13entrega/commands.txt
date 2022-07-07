@@ -1,0 +1,12 @@
+nodemon src/main.js -m FORK -p 4300
+nodemon src/main.js -m CLUSTER -p 4300
+
+forever start src/main.js -m FORK -p 8080
+forever start src/main.js -m CLUSTER -p 8080
+PS taskkill /pid <PID> /f
+
+pm2 start src/main.js --name="server-fork" --watch -- -p 8080
+pm2 start src/main.js --name="server-cluster" --watch -i max -- -p 8081
+pm2 delete all
+
+sudo systemctl restart nginx
