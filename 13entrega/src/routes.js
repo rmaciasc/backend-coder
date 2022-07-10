@@ -1,6 +1,7 @@
 const yargs = require('yargs/yargs')(process.argv.slice(2));
 const { fork } = require('child_process');
 const numCpu = require('os').cpus().length;
+const loggers = require('./loggers');
 
 //--------------------------------------------
 // Yargs
@@ -13,18 +14,22 @@ const args = yargs
 function getRoot(req, res) {
   res.redirect('/welcome.html');
 }
-
+//--------------------------------------------
+// loggers
+const loggerConsola = loggers.loggerConsola;
+const loggerWarn = loggers.loggerWarn;
 //LOGIN
 function getLogin(req, res) {
   if (req.isAuthenticated()) {
     const user = req.user;
-    console.log('user logueado');
+    loggerConsola.info('user logueado');
     res.render('login-ok', {
       usuario: user.username,
       email: user.email,
     });
   } else {
-    console.log('user no logueado');
+    loggerConsola.info('user no logueado');
+    loggerWarn.warn('user no logueado');
     res.redirect('/login.html');
   }
 }
@@ -61,7 +66,7 @@ function failRoute(req, res) {
 }
 
 const getinfo = (req, res) => {
-  res.json({
+  const info = {
     'argumentos entrada': args,
     'path de ejecución': process.execPath,
     'nombre de la plataforma': process.platform,
@@ -70,7 +75,24 @@ const getinfo = (req, res) => {
     'project folder': process.cwd,
     'rss memory': process.memoryUsage().rss,
     '# de CPUs': numCpu,
-  });
+  };
+  // console.log(info);
+  res.json(info);
+};
+
+const getInfoConsole = (req, res) => {
+  const info = {
+    'argumentos entrada': args,
+    'path de ejecución': process.execPath,
+    'nombre de la plataforma': process.platform,
+    'process id': process.pid,
+    'node version': process.version,
+    'project folder': process.cwd,
+    'rss memory': process.memoryUsage().rss,
+    '# de CPUs': numCpu,
+  };
+  console.log(info);
+  res.json(info);
 };
 
 const getRandoms = (req, res) => {
@@ -94,4 +116,5 @@ module.exports = {
   getRoot,
   getinfo,
   getRandoms,
+  getInfoConsole,
 };

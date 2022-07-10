@@ -10,3 +10,17 @@ pm2 start src/main.js --name="server-cluster" --watch -i max -- -p 8081
 pm2 delete all
 
 sudo systemctl restart nginx
+
+#ARTILLERY
+Correr con console.log() en routes.js /info
+artillery quick --count 50 -n 20 http://localhost:8080/info > artillery_result_consolelog.txt
+Correr sin console.log() en routes.js /info
+artillery quick --count 50 -n 20 http://localhost:8080/info > artillery_result_sin_consolelog.txt
+
+Artillery con console.log en /info tomó una media de 22ms en correr mientras que sin console.log tomo sólo una media de 4ms por cada request.
+
+#PROFILING
+node --prof-process console_log-v8.log > result_console_log.txt
+node --prof-process sin_console_log-v8.log > result_sin_console_log.txt
+
+Al utilizar el profiling de node, en los archivos de resultado se puede apreciar que el proceso con console.log contiene más ticks que el proceso con console.log, por lo que el proceso sin console.log es más eficiente.

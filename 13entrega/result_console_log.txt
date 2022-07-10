@@ -1,0 +1,718 @@
+Statistical profiling result from console_log-v8.log, (3576 ticks, 1 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+   2746   76.8%          /usr/bin/node
+    628   17.6%          /usr/lib/x86_64-linux-gnu/libc.so.6
+     55    1.5%          /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+      2    0.1%          [vdso]
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+     39    1.1%   26.9%  LazyCompile: *resolve node:path:1091:10
+     11    0.3%    7.6%  LazyCompile: *Module._nodeModulePaths node:internal/modules/cjs/loader:635:37
+      6    0.2%    4.1%  LazyCompile: *next /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/router/index.js:176:16
+      5    0.1%    3.4%  LazyCompile: *normalizeString node:path:66:25
+      4    0.1%    2.8%  LazyCompile: *readPackage node:internal/modules/cjs/loader:296:21
+      4    0.1%    2.8%  Function: ^Module._load node:internal/modules/cjs/loader:766:24
+      2    0.1%    1.4%  RegExp: [^\t\x20-\x7e\x80-\xff]
+      2    0.1%    1.4%  LazyCompile: *readPackageScope node:internal/modules/cjs/loader:327:26
+      2    0.1%    1.4%  LazyCompile: *readFileSync node:fs:464:22
+      2    0.1%    1.4%  LazyCompile: *processTicksAndRejections node:internal/process/task_queues:67:35
+      2    0.1%    1.4%  LazyCompile: *compileFunction node:vm:309:25
+      2    0.1%    1.4%  LazyCompile: *Module._findPath node:internal/modules/cjs/loader:500:28
+      2    0.1%    1.4%  Function: ^tryExtensions node:internal/modules/cjs/loader:406:23
+      2    0.1%    1.4%  Function: ^normalizeParseOptions /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/qs/lib/parse.js:203:59
+      2    0.1%    1.4%  Function: ^compileFunction node:vm:309:25
+      2    0.1%    1.4%  Function: ^Module._compile node:internal/modules/cjs/loader:1066:37
+      1    0.0%    0.7%  RegExp: ^[!#$%&'*+.^_`|~0-9A-Za-z-]+\/[!#$%&'*+.^_`|~0-9A-Za-z-]+$
+      1    0.0%    0.7%  RegExp: ^[!#$%&'*+.^_`|~0-9A-Za-z-]+$
+      1    0.0%    0.7%  RegExp: ^((?:@[^/\\%]+\/)?[^./\\%][^/\\%]*)(\/.*)?$
+      1    0.0%    0.7%  LazyCompile: *nextTick node:internal/process/task_queues:103:18
+      1    0.0%    0.7%  LazyCompile: *emit node:events:484:44
+      1    0.0%    0.7%  LazyCompile: *dirname node:path:1275:10
+      1    0.0%    0.7%  LazyCompile: *basename node:path:1306:11
+      1    0.0%    0.7%  LazyCompile: *Module._resolveLookupPaths node:internal/modules/cjs/loader:673:38
+      1    0.0%    0.7%  LazyCompile: *Module._compile node:internal/modules/cjs/loader:1066:37
+      1    0.0%    0.7%  Function: ^writevGeneric node:internal/stream_base_commons:122:23
+      1    0.0%    0.7%  Function: ^writeHead node:_http_server:275:19
+      1    0.0%    0.7%  Function: ^validateString node:internal/validators:112:24
+      1    0.0%    0.7%  Function: ^tryFile node:internal/modules/cjs/loader:390:17
+      1    0.0%    0.7%  Function: ^subarray node:buffer:1120:46
+      1    0.0%    0.7%  Function: ^stat node:fs:1512:14
+      1    0.0%    0.7%  Function: ^socketListenerWrap node:_http_server:1043:37
+      1    0.0%    0.7%  Function: ^shift node:internal/fixed_queue:80:8
+      1    0.0%    0.7%  Function: ^setStreamTimeout node:internal/stream_base_commons:237:26
+      1    0.0%    0.7%  Function: ^setHeader node:_http_outgoing:601:57
+      1    0.0%    0.7%  Function: ^serveStatic /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/serve-static/index.js:72:31
+      1    0.0%    0.7%  Function: ^send /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/response.js:107:25
+      1    0.0%    0.7%  Function: ^resolve node:path:1091:10
+      1    0.0%    0.7%  Function: ^removeListener node:events:699:28
+      1    0.0%    0.7%  Function: ^removeAllListeners node:events:759:32
+      1    0.0%    0.7%  Function: ^readSync node:fs:704:18
+      1    0.0%    0.7%  Function: ^readInt32LE node:internal/buffer:385:21
+      1    0.0%    0.7%  Function: ^readFileSync node:fs:464:22
+      1    0.0%    0.7%  Function: ^processHeader node:_http_outgoing:511:23
+      1    0.0%    0.7%  Function: ^parserOnIncoming node:_http_server:894:26
+      1    0.0%    0.7%  Function: ^next /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/router/index.js:176:16
+      1    0.0%    0.7%  Function: ^listenerCount node:events:864:23
+      1    0.0%    0.7%  Function: ^isObjectLike /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/bson/lib/parser/utils.js:91:22
+      1    0.0%    0.7%  Function: ^isEmpty node:internal/fixed_queue:67:10
+      1    0.0%    0.7%  Function: ^importModuleDynamicallyWrap node:internal/vm/module:436:37
+      1    0.0%    0.7%  Function: ^getSourceMapsEnabled node:internal/source_map/source_map_cache:43:30
+      1    0.0%    0.7%  Function: ^getOptions node:internal/fs/utils:318:20
+      1    0.0%    0.7%  Function: ^getEncodingOps node:buffer:682:24
+      1    0.0%    0.7%  Function: ^getDefaultTriggerAsyncId node:internal/async_hooks:432:34
+      1    0.0%    0.7%  Function: ^get node:crypto:369:8
+      1    0.0%    0.7%  Function: ^get loadBalanced /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb/lib/sdam/server.js:91:21
+      1    0.0%    0.7%  Function: ^fresh /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/parseurl/index.js:153:16
+      1    0.0%    0.7%  Function: ^dirname node:path:1275:10
+      1    0.0%    0.7%  Function: ^deserializeObject /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/bson/lib/parser/deserializer.js:65:27
+      1    0.0%    0.7%  Function: ^createWriteHead /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/on-headers/index.js:24:26
+      1    0.0%    0.7%  Function: ^closeSync node:fs:540:19
+      1    0.0%    0.7%  Function: ^canBeRequiredByUsers node:internal/bootstrap/loaders:247:30
+      1    0.0%    0.7%  Function: ^bnpFromString /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/node-forge/lib/jsbn.js:181:23
+      1    0.0%    0.7%  Function: ^_addHeaderLine node:_http_incoming:385:24
+      1    0.0%    0.7%  Function: ^Socket._writeGeneric node:net:837:42
+      1    0.0%    0.7%  Function: ^SessionStrategy.authenticate /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/passport/lib/strategies/session.js:44:50
+      1    0.0%    0.7%  Function: ^Module.require node:internal/modules/cjs/loader:1004:36
+      1    0.0%    0.7%  Function: ^Module._resolveFilename node:internal/modules/cjs/loader:860:35
+      1    0.0%    0.7%  Function: ^Mime.define /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mime/mime.js:21:34
+      1    0.0%    0.7%  Function: ^Hash node:internal/crypto/hash:58:14
+      1    0.0%    0.7%  Function: ^<anonymous> node:internal/validators:97:40
+
+ [C++]:
+   ticks  total  nonlib   name
+
+ [Summary]:
+   ticks  total  nonlib   name
+    144    4.0%   99.3%  JavaScript
+      0    0.0%    0.0%  C++
+    190    5.3%  131.0%  GC
+   3431   95.9%          Shared libraries
+      1    0.0%          Unaccounted
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+   2746   76.8%  /usr/bin/node
+   1972   71.8%    /usr/bin/node
+    861   43.7%      Function: ^compileFunction node:vm:309:25
+    455   52.8%        Function: ^wrapSafe node:internal/modules/cjs/loader:1024:18
+    450   98.9%          Function: ^Module._compile node:internal/modules/cjs/loader:1066:37
+    437   97.1%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1121:37
+     13    2.9%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1121:37
+      5    1.1%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1066:37
+      5  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1121:37
+    398   46.2%        LazyCompile: *Module._compile node:internal/modules/cjs/loader:1066:37
+    398  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1121:37
+    270   67.8%            Function: ^Module.load node:internal/modules/cjs/loader:976:33
+    128   32.2%            LazyCompile: *Module.load node:internal/modules/cjs/loader:976:33
+     77    3.9%      /usr/bin/node
+      7    9.1%        Function: ^readPackage node:internal/modules/cjs/loader:296:21
+      7  100.0%          Function: ^readPackageScope node:internal/modules/cjs/loader:327:26
+      5   71.4%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1121:37
+      2   28.6%            Function: ^trySelf node:internal/modules/cjs/loader:447:17
+      5    6.5%        Function: ^header /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/response.js:759:29
+      4   80.0%          Function: ^json /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/response.js:239:25
+      4  100.0%            Function: ^getinfo /home/rmaciasc/Documents/JS/backend-coder/13entrega/src/routes.js:68:17
+      1   20.0%          Function: ^send /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/response.js:107:25
+      1  100.0%            Function: ^json /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/response.js:239:25
+      4    5.2%        LazyCompile: *Module._load node:internal/modules/cjs/loader:766:24
+      4  100.0%          Function: ^Module.require node:internal/modules/cjs/loader:1004:36
+      4  100.0%            Function: ^require node:internal/modules/cjs/helpers:101:31
+      4    5.2%        Function: ^pipe /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/send/index.js:510:43
+      4  100.0%          Function: ^serveStatic /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/serve-static/index.js:72:31
+      3   75.0%            Function: ^handle /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/router/layer.js:86:49
+      1   25.0%            LazyCompile: *trim_prefix /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/router/index.js:288:23
+      4    5.2%        Function: ^Module node:internal/modules/cjs/loader:172:16
+      4  100.0%          Function: ^Module._load node:internal/modules/cjs/loader:766:24
+      4  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1004:36
+      3    3.9%        LazyCompile: *Module._findPath node:internal/modules/cjs/loader:500:28
+      3  100.0%          Function: ^Module._resolveFilename node:internal/modules/cjs/loader:860:35
+      2   66.7%            LazyCompile: *Module._load node:internal/modules/cjs/loader:766:24
+      1   33.3%            Function: ^Module._load node:internal/modules/cjs/loader:766:24
+      3    3.9%        Function: ^format /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/content-type/index.js:65:17
+      3  100.0%          Function: ^setCharset /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/utils.js:247:41
+      3  100.0%            Function: ^send /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/response.js:107:25
+      3    3.9%        Function: ^expressInit /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/middleware/init.js:29:30
+      2   66.7%          LazyCompile: *trim_prefix /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/router/index.js:288:23
+      2  100.0%            LazyCompile: *next /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/router/index.js:176:16
+      1   33.3%          Function: ^handle /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/router/layer.js:86:49
+      1  100.0%            Function: ^trim_prefix /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/router/index.js:288:23
+      3    3.9%        Function: ^checkInvalidHeaderChar node:_http_common:221:32
+      3  100.0%          Function: ^<anonymous> node:_http_outgoing:577:45
+      3  100.0%            Function: ^setHeader node:_http_outgoing:601:57
+      3    3.9%        Function: ^Module._findPath node:internal/modules/cjs/loader:500:28
+      3  100.0%          Function: ^Module._resolveFilename node:internal/modules/cjs/loader:860:35
+      3  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:766:24
+      2    2.6%        LazyCompile: ~resolvePackageTargetString node:internal/modules/esm/resolve:475:36
+      2  100.0%          LazyCompile: ~resolvePackageTarget node:internal/modules/esm/resolve:543:30
+      1   50.0%            LazyCompile: ~resolvePackageTarget node:internal/modules/esm/resolve:543:30
+      1   50.0%            LazyCompile: ~packageExportsResolve node:internal/modules/esm/resolve:649:31
+      2    2.6%        LazyCompile: ~checkServer /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/sdam/monitor.js:139:21
+      2  100.0%          LazyCompile: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/sdam/monitor.js:222:12
+      2  100.0%            LazyCompile: ~executeAndReschedule /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/utils.js:701:34
+      2    2.6%        Function: ^stat node:internal/modules/cjs/loader:151:14
+      2  100.0%          Function: ^Module._findPath node:internal/modules/cjs/loader:500:28
+      2  100.0%            Function: ^Module._resolveFilename node:internal/modules/cjs/loader:860:35
+      2    2.6%        Function: ^normalize node:path:1127:12
+      1   50.0%          Function: ^pipe /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/send/index.js:510:43
+      1  100.0%            Function: ^serveStatic /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/serve-static/index.js:72:31
+      1   50.0%          Function: ^join node:path:1166:7
+      1  100.0%            Function: ^pipe /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/send/index.js:510:43
+      1    1.3%        LazyCompile: ~updateRsFromPrimary /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/sdam/topology_description.js:274:29
+      1  100.0%          LazyCompile: ~update /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/sdam/topology_description.js:139:11
+      1  100.0%            LazyCompile: ~serverUpdateHandler /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/sdam/topology.js:372:24
+      1    1.3%        LazyCompile: ~setup /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/log4js/lib/categories.js:144:15
+      1  100.0%          LazyCompile: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/log4js/lib/configuration.js:51:21
+      1  100.0%            /usr/bin/node
+      1    1.3%        LazyCompile: ~pipe /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/send/index.js:510:43
+      1  100.0%          LazyCompile: ~serveStatic /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/serve-static/index.js:72:31
+      1  100.0%            LazyCompile: ~handle /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/router/layer.js:86:49
+      1    1.3%        LazyCompile: ~parse node:url:184:37
+      1  100.0%          LazyCompile: ~urlParse node:url:152:18
+      1  100.0%            LazyCompile: ~validate_config /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/@mapbox/node-pre-gyp/lib/util/versioning.js:195:25
+      1    1.3%        LazyCompile: ~h /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/yargs/build/index.cjs:1:1448
+      1  100.0%          LazyCompile: ~boolean /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/yargs/build/index.cjs:1:30306
+      1  100.0%            LazyCompile: ~addHelpOpt /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/yargs/build/index.cjs:1:29399
+      1    1.3%        LazyCompile: ~baseIsNative /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/lodash/_baseIsNative.js:39:22
+      1  100.0%          LazyCompile: ~getNative /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/lodash/_getNative.js:12:19
+      1  100.0%            Function: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/lodash/_Map.js:1:1
+      1    1.3%        LazyCompile: ~applyCoercions /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/yargs-parser/build/index.cjs:693:32
+      1  100.0%          LazyCompile: ~parse /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/yargs-parser/build/index.cjs:108:10
+      1  100.0%            LazyCompile: ~yargsParser.detailed /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/yargs-parser/build/index.cjs:1041:33
+      1    1.3%        LazyCompile: ~addLevels /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/log4js/lib/levels.js:49:19
+      1  100.0%          Function: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/log4js/lib/levels.js:1:1
+      1  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1066:37
+      1    1.3%        LazyCompile: ~ServerDescription /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/sdam/server_description.js:34:16
+      1  100.0%          LazyCompile: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/sdam/server.js:62:55
+      1  100.0%            Function: ^emit node:events:484:44
+      1    1.3%        LazyCompile: ~Monitor /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb/lib/sdam/monitor.js:40:16
+      1  100.0%          LazyCompile: ~Server /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb/lib/sdam/server.js:28:16
+      1  100.0%            LazyCompile: ~createAndConnectServer /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb/lib/sdam/topology.js:513:32
+      1    1.3%        LazyCompile: ~MongoCredentials /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb/lib/cmap/auth/mongo_credentials.js:31:16
+      1  100.0%          LazyCompile: ~merge /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb/lib/cmap/auth/mongo_credentials.js:122:17
+      1  100.0%            LazyCompile: ~transform /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb/lib/connection_string.js:457:18
+      1    1.3%        LazyCompile: ~Kareem.filter /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/kareem/index.js:321:35
+      1  100.0%          LazyCompile: ~applyHooks /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/lib/helpers/model/applyHooks.js:32:20
+      1  100.0%            LazyCompile: ~compile /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/lib/model.js:4800:33
+      1    1.3%        LazyCompile: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/yargs-parser/build/index.cjs:832:57
+      1  100.0%          /usr/bin/node
+      1  100.0%            LazyCompile: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/yargs-parser/build/index.cjs:810:57
+      1    1.3%        LazyCompile: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb/lib/cmap/connect.js:78:43
+      1  100.0%          LazyCompile: ~prepareHandshakeDocument /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb/lib/cmap/connect.js:146:34
+      1  100.0%            LazyCompile: ~performInitialHandshake /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb/lib/cmap/connect.js:62:33
+      1    1.3%        LazyCompile: *compileFunction node:vm:309:25
+      1  100.0%          Function: ^wrapSafe node:internal/modules/cjs/loader:1024:18
+      1  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1066:37
+      1    1.3%        LazyCompile: *Module.load node:internal/modules/cjs/loader:976:33
+      1  100.0%          LazyCompile: *Module._load node:internal/modules/cjs/loader:766:24
+      1  100.0%            LazyCompile: *Module.require node:internal/modules/cjs/loader:1004:36
+      1    1.3%        Function: ~<anonymous> node:constants:1:1
+      1  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1  100.0%            Function: ^compileForPublicLoader node:internal/bootstrap/loaders:263:25
+      1    1.3%        Function: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/fs-extra/lib/fs/index.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1066:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1121:37
+      1    1.3%        Function: ^session /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express-session/index.js:179:26
+      1  100.0%          LazyCompile: *trim_prefix /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/router/index.js:288:23
+      1  100.0%            LazyCompile: *next /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/router/index.js:176:16
+      1    1.3%        Function: ^resolve node:path:1091:10
+      1  100.0%          Function: ^readPackage node:internal/modules/cjs/loader:296:21
+      1  100.0%            Function: ^readPackageScope node:internal/modules/cjs/loader:327:26
+      1    1.3%        Function: ^realpathSync node:fs:2474:22
+      1  100.0%          Function: ^toRealPath node:internal/modules/cjs/loader:399:20
+      1  100.0%            Function: ^tryFile node:internal/modules/cjs/loader:390:17
+      1    1.3%        Function: ^readPackageScope node:internal/modules/cjs/loader:327:26
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1121:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:976:33
+      1    1.3%        Function: ^read node:internal/modules/package_json_reader:16:14
+      1  100.0%          Function: ^readPackage node:internal/modules/cjs/loader:296:21
+      1  100.0%            LazyCompile: *Module._findPath node:internal/modules/cjs/loader:500:28
+      1    1.3%        Function: ^isFileType node:fs:218:20
+      1  100.0%          Function: ^realpathSync node:fs:2474:22
+      1  100.0%            Function: ^toRealPath node:internal/modules/cjs/loader:399:20
+      1    1.3%        Function: ^getOwn node:internal/bootstrap/loaders:187:16
+      1  100.0%          Function: ^syncExports node:internal/bootstrap/loaders:304:14
+      1  100.0%            LazyCompile: ~<anonymous> node:internal/bootstrap/loaders:290:15
+      1    1.3%        Function: ^compileFunction node:vm:309:25
+      1  100.0%          LazyCompile: *Module._compile node:internal/modules/cjs/loader:1066:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1121:37
+      1    1.3%        Function: ^checkAllAliases /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/yargs-parser/build/index.cjs:840:33
+      1  100.0%          LazyCompile: ~setKey /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/yargs-parser/build/index.cjs:750:24
+      1  100.0%            LazyCompile: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/yargs-parser/build/index.cjs:729:59
+      1    1.3%        Function: ^Module.load node:internal/modules/cjs/loader:976:33
+      1  100.0%          Function: ^Module._load node:internal/modules/cjs/loader:766:24
+      1  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1004:36
+      1    1.3%        Function: ^Module._load node:internal/modules/cjs/loader:766:24
+      1  100.0%          Function: ^Module.require node:internal/modules/cjs/loader:1004:36
+      1  100.0%            Function: ^require node:internal/modules/cjs/helpers:101:31
+      1    1.3%        Function: ^FastBuffer node:internal/buffer:958:14
+      1  100.0%          Function: ^alloc node:buffer:363:30
+      1  100.0%            Function: ^serialize /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/bson/lib/bson.js:111:19
+     44    2.2%      LazyCompile: ~configSecureContext node:internal/tls/secure-context:124:29
+     43   97.7%        LazyCompile: ~createSecureContext node:_tls_common:99:29
+     43  100.0%          LazyCompile: ~connect node:_tls_wrap:1600:35
+     43  100.0%            LazyCompile: ~makeConnection /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/cmap/connect.js:241:24
+      1    2.3%        Function: ^createSecureContext node:_tls_common:99:29
+      1  100.0%          Function: ^connect node:_tls_wrap:1600:35
+      1  100.0%            LazyCompile: ~makeConnection /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/cmap/connect.js:241:24
+     44    2.2%      Function: ^writevGeneric node:internal/stream_base_commons:122:23
+     44  100.0%        Function: ^Socket._writeGeneric node:net:837:42
+     44  100.0%          Function: ^Socket._writev node:net:869:36
+     43   97.7%            Function: ^doWrite node:internal/streams/writable:401:17
+      1    2.3%            LazyCompile: ~doWrite node:internal/streams/writable:401:17
+     43    2.2%      Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+     31   72.1%        Function: ^nativeModuleRequire node:internal/bootstrap/loaders:349:29
+      5   16.1%          Function: ~<anonymous> node:http:1:1
+      5  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      4   12.9%          Function: ~<anonymous> node:_http_client:1:1
+      4  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      3    9.7%          Function: ~<anonymous> node:tls:1:1
+      3  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      3    9.7%          Function: ~<anonymous> node:internal/cluster/primary:1:1
+      3  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      3    9.7%          Function: ~<anonymous> node:internal/child_process:1:1
+      3  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      2    6.5%          LazyCompile: ~lazyWebCrypto node:crypto:125:23
+      2  100.0%            LazyCompile: ~get node:crypto:369:8
+      2    6.5%          Function: ~<anonymous> node:child_process:1:1
+      2  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      2    6.5%          Function: ~<anonymous> node:assert:1:1
+      2  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1    3.2%          LazyCompile: ~lazyLoadStreams node:fs:2907:25
+      1  100.0%            LazyCompile: ~get ReadStream node:fs:3050:17
+      1    3.2%          LazyCompile: ~get node:dns:412:8
+      1  100.0%            /usr/bin/node
+      1    3.2%          Function: ~<anonymous> node:cluster:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1    3.2%          Function: ~<anonymous> node:_tls_wrap:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1    3.2%          Function: ~<anonymous> node:_tls_common:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1    3.2%          Function: ~<anonymous> node:_http_server:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1    3.2%          Function: ~<anonymous> node:_http_common:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      7   16.3%        Function: ^compileForPublicLoader node:internal/bootstrap/loaders:263:25
+      7  100.0%          Function: ^loadNativeModule node:internal/modules/cjs/helpers:44:26
+      7  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:766:24
+      5   11.6%        LazyCompile: ~compileForPublicLoader node:internal/bootstrap/loaders:263:25
+      5  100.0%          Function: ^loadNativeModule node:internal/modules/cjs/helpers:44:26
+      4   80.0%            Function: ^Module._load node:internal/modules/cjs/loader:766:24
+      1   20.0%            LazyCompile: ~Module._load node:internal/modules/cjs/loader:766:24
+     27    1.4%      Function: ^stat node:internal/modules/cjs/loader:151:14
+     15   55.6%        Function: ^tryFile node:internal/modules/cjs/loader:390:17
+     15  100.0%          Function: ^tryExtensions node:internal/modules/cjs/loader:406:23
+     12   80.0%            Function: ^Module._findPath node:internal/modules/cjs/loader:500:28
+      3   20.0%            Function: ^tryPackage node:internal/modules/cjs/loader:344:20
+     11   40.7%        Function: ^Module._findPath node:internal/modules/cjs/loader:500:28
+     11  100.0%          Function: ^Module._resolveFilename node:internal/modules/cjs/loader:860:35
+     11  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:766:24
+      1    3.7%        LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:500:28
+      1  100.0%          LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:860:35
+      1  100.0%            LazyCompile: ~Module._load node:internal/modules/cjs/loader:766:24
+     24    1.2%      Function: ^memoryUsage node:internal/process/per_thread:168:23
+     24  100.0%        Function: ^getinfo /home/rmaciasc/Documents/JS/backend-coder/13entrega/src/routes.js:68:17
+     24  100.0%          Function: ^handle /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/router/layer.js:86:49
+     24  100.0%            Function: ^next /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/router/route.js:114:16
+     20    1.0%      LazyCompile: ~SecureContext node:_tls_common:75:23
+     12   60.0%        LazyCompile: ~createSecureContext node:_tls_common:99:29
+     12  100.0%          LazyCompile: ~connect node:_tls_wrap:1600:35
+      7   58.3%            LazyCompile: ~makeConnection /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/cmap/connect.js:241:24
+      5   41.7%            LazyCompile: ~makeConnection /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb/lib/cmap/connect.js:248:24
+      8   40.0%        Function: ^createSecureContext node:_tls_common:99:29
+      8  100.0%          Function: ^connect node:_tls_wrap:1600:35
+      4   50.0%            LazyCompile: ~makeConnection /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/cmap/connect.js:241:24
+      4   50.0%            LazyCompile: ~makeConnection /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb/lib/cmap/connect.js:248:24
+     20    1.0%      LazyCompile: *readPackageScope node:internal/modules/cjs/loader:327:26
+     12   60.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1121:37
+      8   66.7%          Function: ^Module.load node:internal/modules/cjs/loader:976:33
+      8  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:766:24
+      4   33.3%          LazyCompile: *Module._load node:internal/modules/cjs/loader:766:24
+      4  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1004:36
+      8   40.0%        Function: ^trySelf node:internal/modules/cjs/loader:447:17
+      8  100.0%          Function: ^Module._resolveFilename node:internal/modules/cjs/loader:860:35
+      7   87.5%            Function: ^Module._load node:internal/modules/cjs/loader:766:24
+      1   12.5%            LazyCompile: *Module._load node:internal/modules/cjs/loader:766:24
+     20    1.0%      Function: ^session /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express-session/index.js:179:26
+     12   60.0%        Function: ^handle /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/router/layer.js:86:49
+     12  100.0%          Function: ^trim_prefix /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/router/index.js:288:23
+     11   91.7%            LazyCompile: *next /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/router/index.js:176:16
+      1    8.3%            Function: ^<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/router/index.js:275:64
+      8   40.0%        LazyCompile: *trim_prefix /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/router/index.js:288:23
+      8  100.0%          LazyCompile: *next /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/router/index.js:176:16
+      8  100.0%            Function: ^error /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/serve-static/index.js:115:39
+     20    1.0%      Function: ^Hash node:internal/crypto/hash:58:14
+     20  100.0%        Function: ^createHash node:crypto:132:20
+     13   65.0%          Function: ^hash /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express-session/index.js:596:14
+      7   53.8%            Function: ^generate /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express-session/index.js:363:22
+      6   46.2%            Function: ^isModified /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express-session/index.js:425:24
+      7   35.0%          Function: ^entitytag /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/etag/index.js:39:20
+      7  100.0%            Function: ^etag /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/etag/index.js:70:15
+     60    2.2%    LazyCompile: *compileFunction node:vm:309:25
+     60  100.0%      Function: ^wrapSafe node:internal/modules/cjs/loader:1024:18
+     60  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1066:37
+     60  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1121:37
+     33   55.0%            Function: ^Module.load node:internal/modules/cjs/loader:976:33
+     27   45.0%            LazyCompile: *Module._load node:internal/modules/cjs/loader:766:24
+
+    628   17.6%  /usr/lib/x86_64-linux-gnu/libc.so.6
+    243   38.7%    /usr/bin/node
+     19    7.8%      /usr/bin/node
+      2   10.5%        Function: ^readPackage node:internal/modules/cjs/loader:296:21
+      2  100.0%          Function: ^readPackageScope node:internal/modules/cjs/loader:327:26
+      1   50.0%            LazyCompile: ~trySelf node:internal/modules/cjs/loader:447:17
+      1   50.0%            Function: ^trySelf node:internal/modules/cjs/loader:447:17
+      2   10.5%        Function: ^getOwn node:internal/bootstrap/loaders:187:16
+      2  100.0%          Function: ^syncExports node:internal/bootstrap/loaders:304:14
+      2  100.0%            Function: ^<anonymous> node:internal/bootstrap/loaders:290:15
+      1    5.3%        LazyCompile: ~tagsStrictEqual /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/sdam/server_description.js:173:25
+      1  100.0%          LazyCompile: ~equals /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/sdam/server_description.js:118:11
+      1  100.0%            LazyCompile: ~serverUpdateHandler /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/sdam/topology.js:372:24
+      1    5.3%        LazyCompile: ~parse /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/yargs-parser/build/index.cjs:108:10
+      1  100.0%          LazyCompile: ~yargsParser.detailed /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/yargs-parser/build/index.cjs:1041:33
+      1  100.0%            LazyCompile: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/yargs/build/index.cjs:1:56715
+      1    5.3%        LazyCompile: ~parse /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/bytes/index.js:141:15
+      1  100.0%          LazyCompile: ~urlencoded /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/body-parser/lib/types/urlencoded.js:43:21
+      1  100.0%            Function: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/src/main.js:1:1
+      1    5.3%        LazyCompile: ~o /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/yargs/build/index.cjs:1:937
+      1  100.0%          LazyCompile: ~h /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/yargs/build/index.cjs:1:1448
+      1  100.0%            LazyCompile: ~addHelpOpt /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/yargs/build/index.cjs:1:29399
+      1    5.3%        LazyCompile: ~next /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb-connection-string-url/node_modules/whatwg-url/lib/URLSearchParams.js:446:9
+      1  100.0%          LazyCompile: ~parseOptions /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb/lib/connection_string.js:204:22
+      1  100.0%            LazyCompile: ~MongoClient /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb/lib/mongo_client.js:60:16
+      1    5.3%        LazyCompile: ~module.exports.get_napi_build_versions /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/@mapbox/node-pre-gyp/lib/util/napi.js:115:50
+      1  100.0%          LazyCompile: ~module.exports.expand_commands /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/@mapbox/node-pre-gyp/lib/util/napi.js:94:42
+      1  100.0%            LazyCompile: ~parseOpts /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/@mapbox/node-pre-gyp/lib/node-pre-gyp.js:144:37
+      1    5.3%        LazyCompile: ~matchesParentDomain /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/connection_string.js:32:29
+      1  100.0%          LazyCompile: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/connection_string.js:55:72
+      1  100.0%            LazyCompile: ~onresolve node:dns:270:19
+      1    5.3%        LazyCompile: ~makeConnection /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/cmap/connect.js:241:24
+      1  100.0%          LazyCompile: ~connect /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/cmap/connect.js:30:17
+      1  100.0%            LazyCompile: ~checkServer /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/sdam/monitor.js:139:21
+      1    5.3%        LazyCompile: ~get hasDataBearingServers /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb/lib/sdam/topology_description.js:231:30
+      1  100.0%          LazyCompile: ~shouldCheckForSessionSupport /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb/lib/sdam/topology.js:316:33
+      1  100.0%            LazyCompile: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb/lib/operations/execute_operation.js:16:48
+      1    5.3%        LazyCompile: ~_advanceClusterTime /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/sdam/common.js:44:29
+      1  100.0%          LazyCompile: ~serverUpdateHandler /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/sdam/topology.js:372:24
+      1  100.0%            LazyCompile: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/sdam/topology.js:535:53
+      1    5.3%        LazyCompile: ~SemVer /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/semver/classes/semver.js:8:15
+      1  100.0%          LazyCompile: ~parse /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/semver/functions/parse.js:6:15
+      1  100.0%            LazyCompile: ~module.exports.evaluate /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/@mapbox/node-pre-gyp/lib/util/versioning.js:277:35
+      1    5.3%        Function: ^toString /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/uid-safe/index.js:102:19
+      1  100.0%          Function: ^uidSync /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/uid-safe/index.js:75:18
+      1  100.0%            Function: ^generateSessionId /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express-session/index.js:518:27
+      1    5.3%        Function: ^resOnFinish node:_http_server:836:21
+      1  100.0%          LazyCompile: *emit node:events:484:44
+      1  100.0%            Function: ^onFinish node:_http_outgoing:907:18
+      1    5.3%        Function: ^entitytag /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/etag/index.js:39:20
+      1  100.0%          Function: ^etag /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/etag/index.js:70:15
+      1  100.0%            Function: ^generateETag /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/utils.js:272:32
+      1    5.3%        Function: ^clearBuffer node:internal/streams/writable:532:21
+      1  100.0%          Function: ^Writable.uncork node:internal/streams/writable:344:37
+      1  100.0%            Function: ^end node:_http_outgoing:912:45
+     10    4.1%      LazyCompile: *realpathSync node:fs:2474:22
+      7   70.0%        Function: ^toRealPath node:internal/modules/cjs/loader:399:20
+      6   85.7%          Function: ^tryFile node:internal/modules/cjs/loader:390:17
+      5   83.3%            Function: ^tryExtensions node:internal/modules/cjs/loader:406:23
+      1   16.7%            Function: ^tryPackage node:internal/modules/cjs/loader:344:20
+      1   14.3%          LazyCompile: *Module._findPath node:internal/modules/cjs/loader:500:28
+      1  100.0%            Function: ^Module._resolveFilename node:internal/modules/cjs/loader:860:35
+      3   30.0%        LazyCompile: *Module._findPath node:internal/modules/cjs/loader:500:28
+      3  100.0%          Function: ^Module._resolveFilename node:internal/modules/cjs/loader:860:35
+      2   66.7%            Function: ^Module._load node:internal/modules/cjs/loader:766:24
+      1   33.3%            LazyCompile: *Module._load node:internal/modules/cjs/loader:766:24
+      5    2.1%      Function: ^onStreamRead node:internal/stream_base_commons:167:22
+      4    1.6%      LazyCompile: *resolve node:path:1091:10
+      2   50.0%        LazyCompile: *readPackageScope node:internal/modules/cjs/loader:327:26
+      2  100.0%          Function: ^trySelf node:internal/modules/cjs/loader:447:17
+      2  100.0%            Function: ^Module._resolveFilename node:internal/modules/cjs/loader:860:35
+      2   50.0%        Function: ^Module._findPath node:internal/modules/cjs/loader:500:28
+      2  100.0%          Function: ^Module._resolveFilename node:internal/modules/cjs/loader:860:35
+      2  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:766:24
+      3    1.2%      LazyCompile: ~realpathSync node:fs:2474:22
+      3  100.0%        LazyCompile: ~toRealPath node:internal/modules/cjs/loader:399:20
+      3  100.0%          LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:500:28
+      3  100.0%            LazyCompile: ~resolveMainPath node:internal/modules/run_main:15:25
+      3    1.2%      Function: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/src/main.js:1:1
+      3  100.0%        LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1066:37
+      3  100.0%          LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1121:37
+      3  100.0%            LazyCompile: ~Module.load node:internal/modules/cjs/loader:976:33
+     59    9.4%    LazyCompile: *compileFunction node:vm:309:25
+     59  100.0%      Function: ^wrapSafe node:internal/modules/cjs/loader:1024:18
+     59  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1066:37
+     59  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1121:37
+     35   59.3%            LazyCompile: *Module._load node:internal/modules/cjs/loader:766:24
+     24   40.7%            Function: ^Module.load node:internal/modules/cjs/loader:976:33
+     12    1.9%    LazyCompile: *readFileSync node:fs:464:22
+     11   91.7%      Function: ^Module._extensions..js node:internal/modules/cjs/loader:1121:37
+      7   63.6%        Function: ^Module.load node:internal/modules/cjs/loader:976:33
+      7  100.0%          Function: ^Module._load node:internal/modules/cjs/loader:766:24
+      7  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1004:36
+      4   36.4%        LazyCompile: *Module.load node:internal/modules/cjs/loader:976:33
+      4  100.0%          LazyCompile: *Module._load node:internal/modules/cjs/loader:766:24
+      3   75.0%            Function: ^Module.require node:internal/modules/cjs/loader:1004:36
+      1   25.0%            LazyCompile: *Module.require node:internal/modules/cjs/loader:1004:36
+      1    8.3%      LazyCompile: ~Module._extensions..json node:internal/modules/cjs/loader:1171:39
+      1  100.0%        Function: ^Module.load node:internal/modules/cjs/loader:976:33
+      1  100.0%          Function: ^Module._load node:internal/modules/cjs/loader:766:24
+      1  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1004:36
+     11    1.8%    LazyCompile: *realpathSync node:fs:2474:22
+      8   72.7%      Function: ^toRealPath node:internal/modules/cjs/loader:399:20
+      8  100.0%        Function: ^tryFile node:internal/modules/cjs/loader:390:17
+      8  100.0%          Function: ^tryExtensions node:internal/modules/cjs/loader:406:23
+      6   75.0%            Function: ^Module._findPath node:internal/modules/cjs/loader:500:28
+      2   25.0%            Function: ^tryPackage node:internal/modules/cjs/loader:344:20
+      3   27.3%      LazyCompile: *Module._findPath node:internal/modules/cjs/loader:500:28
+      3  100.0%        Function: ^Module._resolveFilename node:internal/modules/cjs/loader:860:35
+      2   66.7%          Function: ^Module._load node:internal/modules/cjs/loader:766:24
+      2  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1004:36
+      1   33.3%          LazyCompile: *Module._load node:internal/modules/cjs/loader:766:24
+      1  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1004:36
+      8    1.3%    LazyCompile: *stat node:internal/modules/cjs/loader:151:14
+      4   50.0%      Function: ^tryFile node:internal/modules/cjs/loader:390:17
+      4  100.0%        Function: ^tryExtensions node:internal/modules/cjs/loader:406:23
+      4  100.0%          Function: ^Module._findPath node:internal/modules/cjs/loader:500:28
+      4  100.0%            Function: ^Module._resolveFilename node:internal/modules/cjs/loader:860:35
+      4   50.0%      Function: ^Module._findPath node:internal/modules/cjs/loader:500:28
+      4  100.0%        Function: ^Module._resolveFilename node:internal/modules/cjs/loader:860:35
+      4  100.0%          Function: ^Module._load node:internal/modules/cjs/loader:766:24
+      4  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1004:36
+      7    1.1%    LazyCompile: *Module._findPath node:internal/modules/cjs/loader:500:28
+      7  100.0%      Function: ^Module._resolveFilename node:internal/modules/cjs/loader:860:35
+      4   57.1%        Function: ^Module._load node:internal/modules/cjs/loader:766:24
+      4  100.0%          Function: ^Module.require node:internal/modules/cjs/loader:1004:36
+      4  100.0%            Function: ^require node:internal/modules/cjs/helpers:101:31
+      3   42.9%        LazyCompile: *Module._load node:internal/modules/cjs/loader:766:24
+      3  100.0%          Function: ^Module.require node:internal/modules/cjs/loader:1004:36
+      3  100.0%            Function: ^require node:internal/modules/cjs/helpers:101:31
+
+     55    1.5%  /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+     44   80.0%    /usr/bin/node
+      2    4.5%      LazyCompile: ~serverUpdateHandler /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/sdam/topology.js:372:24
+      2  100.0%        LazyCompile: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/sdam/topology.js:535:53
+      2  100.0%          Function: ^emit node:events:484:44
+      2  100.0%            LazyCompile: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/sdam/server.js:62:55
+      2    4.5%      Function: ^<anonymous> node:internal/validators:225:42
+      2  100.0%        Function: ^compileFunction node:vm:309:25
+      1   50.0%          LazyCompile: *Module._compile node:internal/modules/cjs/loader:1066:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1121:37
+      1   50.0%          Function: ^wrapSafe node:internal/modules/cjs/loader:1024:18
+      1  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1066:37
+      2    4.5%      /usr/bin/node
+      1   50.0%        LazyCompile: ~MongoCredentials /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb/lib/cmap/auth/mongo_credentials.js:31:16
+      1  100.0%          LazyCompile: ~merge /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb/lib/cmap/auth/mongo_credentials.js:122:17
+      1  100.0%            LazyCompile: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb/lib/connection_string.js:72:39
+      1   50.0%        Function: ^compileFunction node:vm:309:25
+      1  100.0%          Function: ^wrapSafe node:internal/modules/cjs/loader:1024:18
+      1  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1066:37
+      1    2.3%      LazyCompile: ~yargsParser.detailed /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/yargs-parser/build/index.cjs:1041:33
+      1  100.0%        LazyCompile: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/yargs/build/index.cjs:1:56715
+      1  100.0%          LazyCompile: ~parse /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/yargs/build/index.cjs:1:39583
+      1  100.0%            LazyCompile: ~get /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/yargs/build/index.cjs:1:61245
+      1    2.3%      LazyCompile: ~wrapSafe node:internal/modules/cjs/loader:1024:18
+      1  100.0%        LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1066:37
+      1  100.0%          LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1121:37
+      1  100.0%            LazyCompile: ~Module.load node:internal/modules/cjs/loader:976:33
+      1    2.3%      LazyCompile: ~validate_config /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/@mapbox/node-pre-gyp/lib/util/versioning.js:195:25
+      1  100.0%        LazyCompile: ~exports.find /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/@mapbox/node-pre-gyp/lib/pre-binding.js:17:24
+      1  100.0%          Function: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/bcrypt/bcrypt.js:1:1
+      1  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1066:37
+      1    2.3%      LazyCompile: ~toRealPath node:internal/modules/cjs/loader:399:20
+      1  100.0%        LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:500:28
+      1  100.0%          LazyCompile: ~resolveMainPath node:internal/modules/run_main:15:25
+      1  100.0%            LazyCompile: ~executeUserEntryPoint node:internal/modules/run_main:70:31
+      1    2.3%      LazyCompile: ~toBin /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/cmap/commands.js:82:10
+      1  100.0%        LazyCompile: ~writeCommand /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/cmap/message_stream.js:35:17
+      1  100.0%          LazyCompile: ~write /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:513:15
+      1  100.0%            LazyCompile: ~command /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:247:12
+      1    2.3%      LazyCompile: ~session /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express-session/index.js:179:26
+      1  100.0%        LazyCompile: ~handle /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/router/layer.js:86:49
+      1  100.0%          LazyCompile: ~trim_prefix /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/router/index.js:288:23
+      1  100.0%            LazyCompile: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/router/index.js:275:64
+      1    2.3%      LazyCompile: ~retry /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/graceful-fs/graceful-fs.js:397:16
+      1  100.0%        LazyCompile: ~resetQueue /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/graceful-fs/graceful-fs.js:383:21
+      1  100.0%          LazyCompile: ~closeSync /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/graceful-fs/graceful-fs.js:72:24
+      1  100.0%            Function: ^readFileSync node:fs:464:22
+      1    2.3%      LazyCompile: ~prepare /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/cmap/auth/scram.js:16:12
+      1  100.0%        LazyCompile: ~prepareHandshakeDocument /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/cmap/connect.js:139:34
+      1  100.0%          LazyCompile: ~performInitialHandshake /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/cmap/connect.js:62:33
+      1  100.0%            LazyCompile: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/cmap/connect.js:31:63
+      1    2.3%      LazyCompile: ~passwordDigest /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/cmap/auth/scram.js:182:24
+      1  100.0%        LazyCompile: ~continueScramConversation /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/cmap/auth/scram.js:93:35
+      1  100.0%          LazyCompile: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/cmap/auth/scram.js:85:80
+      1  100.0%            LazyCompile: ~onMessage /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:152:14
+      1    2.3%      LazyCompile: ~parserOnIncoming node:_http_server:894:26
+      1  100.0%        LazyCompile: ~parserOnHeadersComplete node:_http_common:72:33
+      1    2.3%      LazyCompile: ~onMessage /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:152:14
+      1  100.0%        LazyCompile: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:63:44
+      1  100.0%          Function: ^emit node:events:484:44
+      1  100.0%            LazyCompile: ~processIncomingData /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/cmap/message_stream.js:79:29
+      1    2.3%      LazyCompile: ~onMessage /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb/lib/cmap/connection.js:151:14
+      1  100.0%        LazyCompile: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb/lib/cmap/connection.js:62:44
+      1  100.0%          Function: ^emit node:events:484:44
+      1  100.0%            LazyCompile: ~processIncomingData /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb/lib/cmap/message_stream.js:79:29
+      1    2.3%      LazyCompile: ~module.exports /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/lib/plugins/saveSubdocs.js:9:26
+      1  100.0%        LazyCompile: ~Schema.plugin /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/lib/schema.js:1682:35
+      1  100.0%          LazyCompile: ~applyPlugins /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/lib/helpers/schema/applyPlugins.js:3:39
+      1  100.0%            LazyCompile: ~Mongoose._applyPlugins /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/lib/index.js:639:44
+      1    2.3%      LazyCompile: ~makeInterruptibleAsyncInterval /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/utils.js:646:40
+      1  100.0%        LazyCompile: ~connect /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/sdam/monitor.js:80:12
+      1  100.0%          LazyCompile: ~connect /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/sdam/server.js:96:12
+      1  100.0%            LazyCompile: ~createAndConnectServer /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/sdam/topology.js:529:32
+      1    2.3%      LazyCompile: ~limitedChoices /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/yargs/build/index.cjs:1:53812
+      1  100.0%        LazyCompile: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/yargs/build/index.cjs:1:59154
+      1  100.0%          LazyCompile: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/yargs/build/index.cjs:1:49020
+      1  100.0%            LazyCompile: ~j /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/yargs/build/index.cjs:1:4864
+      1    2.3%      LazyCompile: ~json /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/response.js:239:25
+      1  100.0%        Function: ^getinfo /home/rmaciasc/Documents/JS/backend-coder/13entrega/src/routes.js:68:17
+      1  100.0%          Function: ^handle /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/router/layer.js:86:49
+      1  100.0%            LazyCompile: ~next /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express/lib/router/route.js:114:16
+      1    2.3%      LazyCompile: ~fromObject node:buffer:498:20
+      1  100.0%        LazyCompile: ~from node:buffer:299:28
+      1  100.0%          Function: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/ws/lib/permessage-deflate.js:1:1
+      1  100.0%            LazyCompile: *Module._compile node:internal/modules/cjs/loader:1066:37
+      1    2.3%      LazyCompile: ~deserialize /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/bson/lib/parser/deserializer.js:36:21
+      1  100.0%        LazyCompile: ~deserialize /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/bson/lib/bson.js:162:21
+      1  100.0%          LazyCompile: ~parse /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/cmap/commands.js:384:10
+      1  100.0%            LazyCompile: ~onMessage /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:152:14
+      1    2.3%      LazyCompile: ~createWritableStdioStream node:internal/bootstrap/switches/is_main_thread:42:35
+      1  100.0%        LazyCompile: ~getStderr node:internal/bootstrap/switches/is_main_thread:157:19
+      1  100.0%          Function: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/debug/src/node.js:1:1
+      1  100.0%            LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1066:37
+      1    2.3%      LazyCompile: ~createAppender /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/log4js/lib/appenders/index.js:74:24
+      1  100.0%        LazyCompile: ~getAppender /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/log4js/lib/appenders/index.js:59:21
+      1  100.0%          LazyCompile: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/log4js/lib/appenders/index.js:139:41
+      1  100.0%            /usr/bin/node
+      1    2.3%      LazyCompile: ~connect node:_tls_wrap:1600:35
+      1  100.0%        LazyCompile: ~makeConnection /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb/lib/cmap/connect.js:248:24
+      1  100.0%          LazyCompile: ~connect /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb/lib/cmap/connect.js:30:17
+      1  100.0%            LazyCompile: ~measureRoundTripTime /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb/lib/sdam/monitor.js:280:30
+      1    2.3%      LazyCompile: ~callFinal node:internal/streams/writable:666:19
+      1  100.0%        LazyCompile: ~prefinish node:internal/streams/writable:706:19
+      1  100.0%          Function: ^finishMaybe node:internal/streams/writable:718:21
+      1  100.0%            LazyCompile: ~Writable.end node:internal/streams/writable:597:34
+      1    2.3%      LazyCompile: ~TopologyDescription /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/sdam/topology_description.js:29:16
+      1  100.0%        LazyCompile: ~update /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/sdam/topology_description.js:139:11
+      1  100.0%          LazyCompile: ~serverUpdateHandler /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/sdam/topology.js:372:24
+      1  100.0%            LazyCompile: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/sdam/topology.js:535:53
+      1    2.3%      LazyCompile: ~Mongoose.model /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/lib/index.js:473:36
+      1  100.0%        Function: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/src/models.js:1:1
+      1  100.0%          LazyCompile: *Module._compile node:internal/modules/cjs/loader:1066:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1121:37
+      1    2.3%      LazyCompile: ~MongoDBAWS /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb/lib/cmap/auth/mongodb_aws.js:24:1
+      1  100.0%        Function: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb/lib/cmap/connect.js:1:1
+      1  100.0%          LazyCompile: *Module._compile node:internal/modules/cjs/loader:1066:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1121:37
+      1    2.3%      LazyCompile: ~Module._load node:internal/modules/cjs/loader:766:24
+      1  100.0%        LazyCompile: ~executeUserEntryPoint node:internal/modules/run_main:70:31
+      1  100.0%          Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    2.3%      LazyCompile: ~Hmac node:internal/crypto/hash:127:14
+      1  100.0%        LazyCompile: ~createHmac node:crypto:164:20
+      1  100.0%          LazyCompile: ~HMAC /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/cmap/auth/scram.js:214:14
+      1  100.0%            LazyCompile: ~continueScramConversation /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/cmap/auth/scram.js:93:35
+      1    2.3%      LazyCompile: ~Duplex node:internal/streams/duplex:54:16
+      1  100.0%        LazyCompile: ~Socket node:net:293:16
+      1  100.0%          LazyCompile: ~WriteStream node:tty:84:21
+      1  100.0%            LazyCompile: ~createWritableStdioStream node:internal/bootstrap/switches/is_main_thread:42:35
+      1    2.3%      LazyCompile: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/yargs/build/index.cjs:1:48092
+      1  100.0%        LazyCompile: ~parse /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/yargs/build/index.cjs:1:39583
+      1  100.0%          LazyCompile: ~get /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/yargs/build/index.cjs:1:61245
+      1  100.0%            Function: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/src/routes.js:1:1
+      1    2.3%      Function: ~<anonymous> node:zlib:1:1
+      1  100.0%        Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1  100.0%          LazyCompile: ~compileForPublicLoader node:internal/bootstrap/loaders:263:25
+      1  100.0%            Function: ^loadNativeModule node:internal/modules/cjs/helpers:44:26
+      1    2.3%      Function: ~<anonymous> node:internal/crypto/webcrypto:1:1
+      1  100.0%        Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1  100.0%          Function: ^nativeModuleRequire node:internal/bootstrap/loaders:349:29
+      1  100.0%            LazyCompile: ~lazyWebCrypto node:crypto:125:23
+      1    2.3%      Function: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/express-session/session/session.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1066:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1121:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:976:33
+      1    2.3%      Function: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/@google-cloud/firestore/build/src/path.js:1:1
+      1  100.0%        LazyCompile: *Module._compile node:internal/modules/cjs/loader:1066:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1121:37
+      1  100.0%            LazyCompile: *Module.load node:internal/modules/cjs/loader:976:33
+      1    2.3%      Function: ^onceWrapper node:events:646:21
+      1  100.0%        Function: ^emit node:events:484:44
+      1  100.0%          LazyCompile: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb/lib/sdam/topology.js:200:80
+      1  100.0%            LazyCompile: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongodb/lib/cmap/connection_pool.js:267:27
+      1    2.3%      Function: ^onStreamRead node:internal/stream_base_commons:167:22
+      1    2.3%      Function: ^listOnTimeout node:internal/timers:512:25
+      1  100.0%        Function: ^processTimers node:internal/timers:492:25
+      1    2.3%      Function: ^checkError node:internal/streams/destroy:23:20
+      1  100.0%        LazyCompile: *processTicksAndRejections node:internal/process/task_queues:67:35
+      1    2.3%      Function: ^Module._load node:internal/modules/cjs/loader:766:24
+      1  100.0%        Function: ^Module.require node:internal/modules/cjs/loader:1004:36
+      1  100.0%          Function: ^require node:internal/modules/cjs/helpers:101:31
+      1  100.0%            Function: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/faker/lib/locales/es/name/index.js:1:1
+     11   20.0%    LazyCompile: *compileFunction node:vm:309:25
+     11  100.0%      Function: ^wrapSafe node:internal/modules/cjs/loader:1024:18
+     11  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1066:37
+     11  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1121:37
+      7   63.6%            LazyCompile: *Module._load node:internal/modules/cjs/loader:766:24
+      4   36.4%            Function: ^Module.load node:internal/modules/cjs/loader:976:33
+
+     39    1.1%  LazyCompile: *resolve node:path:1091:10
+     15   38.5%    LazyCompile: *readPackageScope node:internal/modules/cjs/loader:327:26
+      9   60.0%      Function: ^Module._extensions..js node:internal/modules/cjs/loader:1121:37
+      7   77.8%        Function: ^Module.load node:internal/modules/cjs/loader:976:33
+      7  100.0%          Function: ^Module._load node:internal/modules/cjs/loader:766:24
+      7  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1004:36
+      2   22.2%        LazyCompile: *Module._load node:internal/modules/cjs/loader:766:24
+      2  100.0%          Function: ^Module.require node:internal/modules/cjs/loader:1004:36
+      2  100.0%            Function: ^require node:internal/modules/cjs/helpers:101:31
+      6   40.0%      Function: ^trySelf node:internal/modules/cjs/loader:447:17
+      6  100.0%        Function: ^Module._resolveFilename node:internal/modules/cjs/loader:860:35
+      4   66.7%          Function: ^Module._load node:internal/modules/cjs/loader:766:24
+      4  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1004:36
+      2   33.3%          LazyCompile: *Module._load node:internal/modules/cjs/loader:766:24
+      2  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1004:36
+     12   30.8%    Function: ^readPackage node:internal/modules/cjs/loader:296:21
+     11   91.7%      Function: ^readPackageScope node:internal/modules/cjs/loader:327:26
+      7   63.6%        Function: ^trySelf node:internal/modules/cjs/loader:447:17
+      7  100.0%          Function: ^Module._resolveFilename node:internal/modules/cjs/loader:860:35
+      7  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:766:24
+      4   36.4%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1121:37
+      4  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:976:33
+      4  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:766:24
+      1    8.3%      Function: ^tryPackage node:internal/modules/cjs/loader:344:20
+      1  100.0%        Function: ^Module._findPath node:internal/modules/cjs/loader:500:28
+      1  100.0%          Function: ^Module._resolveFilename node:internal/modules/cjs/loader:860:35
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:766:24
+      6   15.4%    Function: ^Module._findPath node:internal/modules/cjs/loader:500:28
+      6  100.0%      Function: ^Module._resolveFilename node:internal/modules/cjs/loader:860:35
+      6  100.0%        Function: ^Module._load node:internal/modules/cjs/loader:766:24
+      6  100.0%          Function: ^Module.require node:internal/modules/cjs/loader:1004:36
+      6  100.0%            Function: ^require node:internal/modules/cjs/helpers:101:31
+      2    5.1%    LazyCompile: *realpathSync node:fs:2474:22
+      2  100.0%      Function: ^toRealPath node:internal/modules/cjs/loader:399:20
+      2  100.0%        Function: ^tryFile node:internal/modules/cjs/loader:390:17
+      2  100.0%          Function: ^tryExtensions node:internal/modules/cjs/loader:406:23
+      2  100.0%            Function: ^Module._findPath node:internal/modules/cjs/loader:500:28
+      2    5.1%    LazyCompile: *Module._findPath node:internal/modules/cjs/loader:500:28
+      2  100.0%      Function: ^Module._resolveFilename node:internal/modules/cjs/loader:860:35
+      2  100.0%        LazyCompile: *Module._load node:internal/modules/cjs/loader:766:24
+      2  100.0%          Function: ^Module.require node:internal/modules/cjs/loader:1004:36
+      2  100.0%            Function: ^require node:internal/modules/cjs/helpers:101:31
+      1    2.6%    Function: ^tryPackage node:internal/modules/cjs/loader:344:20
+      1  100.0%      LazyCompile: *Module._findPath node:internal/modules/cjs/loader:500:28
+      1  100.0%        Function: ^Module._resolveFilename node:internal/modules/cjs/loader:860:35
+      1  100.0%          LazyCompile: *Module._load node:internal/modules/cjs/loader:766:24
+      1  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1004:36
+      1    2.6%    Function: ^Module._resolveFilename node:internal/modules/cjs/loader:860:35
+      1  100.0%      Function: ^Module._load node:internal/modules/cjs/loader:766:24
+      1  100.0%        Function: ^Module.require node:internal/modules/cjs/loader:1004:36
+      1  100.0%          Function: ^require node:internal/modules/cjs/helpers:101:31
+      1  100.0%            Function: ~<anonymous> /home/rmaciasc/Documents/JS/backend-coder/13entrega/node_modules/mongoose/node_modules/mongodb/lib/collection.js:1:1
+

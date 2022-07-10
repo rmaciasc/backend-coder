@@ -1,7 +1,9 @@
+const compression = require('compression');
 const yargs = require('yargs/yargs')(process.argv.slice(2));
 const path = require('path');
 const express = require('express');
 const cluster = require('cluster');
+const loggers = require('./loggers');
 
 const faker = require('faker');
 const normalizr = require('normalizr');
@@ -43,6 +45,12 @@ const args = yargs
   .alias({ p: 'PORT', m: 'MODE' }).argv;
 
 //--------------------------------------------
+// loggers
+const loggerConsola = loggers.loggerConsola;
+const loggerError = loggers.loggerError;
+const loggerWarn = loggers.loggerWarn;
+
+//--------------------------------------------
 // instancio servidor, socket y api
 
 const app = express();
@@ -73,7 +81,8 @@ passport.use(
         return done(err);
       }
       if (!user) {
-        console.log('Email not found', email);
+        loggerConsola.warn('Email not found', email);
+        loggerWarn.warn('Email not found', email);
         return done(null, false, { message: 'Incorrect username.' });
       }
       if (!isValidPassword(user, password)) {
@@ -86,31 +95,28 @@ passport.use(
 
 passport.use(
   'signup',
-  new LocalStrategy(
-    { passReqToCallback: true },
-    (req, username, password, done) => {
-      User.findOne({ username: username }, (err, user) => {
+  new LocalStrategy({ passReqToCallback: true }, (req, username, password, done) => {
+    User.findOne({ username: username }, (err, user) => {
+      if (err) {
+        return done(err);
+      }
+      if (user) {
+        return done(null, false, { message: 'Username already exists.' });
+      }
+      const newUser = {
+        username: username,
+        password: createHash(password),
+        email: req.body.email,
+      };
+
+      User.create(newUser, (err, user) => {
         if (err) {
           return done(err);
         }
-        if (user) {
-          return done(null, false, { message: 'Username already exists.' });
-        }
-        const newUser = {
-          username: username,
-          password: createHash(password),
-          email: req.body.email,
-        };
-
-        User.create(newUser, (err, user) => {
-          if (err) {
-            return done(err);
-          }
-          return done(null, user);
-        });
+        return done(null, user);
       });
-    }
-  )
+    });
+  })
 );
 
 passport.serializeUser((user, done) => {
@@ -155,7 +161,7 @@ const postSchema = new schema.Entity('posts', {
 // configuro el socket
 
 io.on('connection', async (socket) => {
-  console.log('Nuevo cliente conectado!');
+  loggerConsola.info('Nuevo cliente conectado!');
 
   // carga inicial de productos
   const productos = await productosApi.listarAll();
@@ -165,13 +171,13 @@ io.on('connection', async (socket) => {
   socket.on('addProduct', async (newProd) => {
     const _ = await productosApi.guardar(newProd);
     const productos = await productosApi.listarAll();
-    console.log('productos', productos);
+    loggerConsola.info('productos', productos);
     io.sockets.emit('productos', productos);
   });
 
   // carga inicial de mensajes
   const mensajes = await mensajesApi.listarAll();
-  console.log('mensajes', mensajes);
+  loggerConsola.info('mensajes', mensajes);
   const mensajesN = normalize(mensajes, [postSchema]);
   socket.emit('mensajes', mensajesN);
   // actualizacion de mensajes
@@ -192,8 +198,7 @@ app.use(express.static('public'));
 app.use(
   session({
     store: MongoStore.create({
-      mongoUrl:
-        'mongodb+srv://rmacias:LXkNcbolg0BPR1Ne@cluster0.se8cs.mongodb.net/?retryWrites=true&w=majority',
+      mongoUrl: 'mongodb+srv://rmacias:LXkNcbolg0BPR1Ne@cluster0.se8cs.mongodb.net/?retryWrites=true&w=majority',
       mongoOptions: advancedOptions,
     }),
     secret: 'secreto',
@@ -233,27 +238,20 @@ app.get('/api/productos-test', (req, res) => {
 app.get('/', routes.getRoot);
 //LOGIN
 app.get('/login', routes.getLogin);
-app.post(
-  '/login',
-  passport.authenticate('login', { failureRedirect: '/faillogin' }),
-  routes.postLogin
-);
+app.post('/login', passport.authenticate('login', { failureRedirect: '/faillogin' }), routes.postLogin);
 app.get('/faillogin', routes.getFailLogin);
 
 //REGISTER
 app.get('/signup', routes.getSignup);
-app.post(
-  '/signup',
-  passport.authenticate('signup', { failureRedirect: '/failsignup' }),
-  routes.postSignup
-);
+app.post('/signup', passport.authenticate('signup', { failureRedirect: '/failsignup' }), routes.postSignup);
 app.get('/failsignup', routes.getFailSignup);
 
-const getSessionName = (req) => req.session.name ?? '';
 app.get('/logout', routes.getLogout);
 
 //INFO
 app.get('/info', routes.getinfo);
+app.get('/info-console', routes.getInfoConsole);
+app.get('/infozip', compression(), routes.getinfo);
 
 // Child process
 app.get('/api/randoms', routes.getRandoms);
@@ -263,44 +261,43 @@ app.get('/api/randoms', routes.getRandoms);
 const PORT = args.PORT;
 controllersdb.conectarDB(config.URL_BASE_DE_DATOS, (err) => {
   if (err) {
-    console.log(err);
+    loggerError.error(err);
+    loggerConsola.error(err);
   }
-  console.log('Base de datos conectada');
+  loggerConsola.info('Base de datos conectada');
 });
 
-console.log(args.MODE);
+loggerConsola.info('Modo: ', args.MODE);
 if (args.MODE == 'FORK') {
   const connectedServer = httpServer.listen(PORT, () => {
-    console.log(
-      `Servidor http escuchando en el puerto ${
-        connectedServer.address().port
-      }, worker ${process.pid} started`
+    loggerConsola.info(
+      `Servidor http escuchando en el puerto ${connectedServer.address().port}, worker ${process.pid} started`
     );
   });
-  connectedServer.on('error', (error) =>
-    console.log(`Error en servidor ${error}`)
-  );
+  connectedServer.on('error', (error) => {
+    loggerError.error(`Error en servidor ${error}`);
+    loggerConsola.info(`Error en servidor ${error}`);
+  });
 } else if (args.MODE == 'CLUSTER') {
   if (cluster.isMaster) {
-    console.log(`PID MASTER ${process.pid}`);
+    loggerConsola.info(`PID MASTER ${process.pid}`);
 
     for (let i = 0; i < numCpu; i++) {
       cluster.fork();
     }
 
     cluster.on('exit', (worker, code, signal) => {
-      console.log(`Worker ${worker.process.pid} died`);
+      loggerConsola.info(`Worker ${worker.process.pid} died`);
     });
   } else {
     const connectedServer = httpServer.listen(PORT, () => {
-      console.log(
-        `Servidor http escuchando en el puerto ${
-          connectedServer.address().port
-        }, worker ${process.pid} started`
+      loggerConsola.info(
+        `Servidor http escuchando en el puerto ${connectedServer.address().port}, worker ${process.pid} started`
       );
     });
-    connectedServer.on('error', (error) =>
-      console.log(`Error en servidor ${error}`)
-    );
+    connectedServer.on('error', (error) => {
+      loggerConsola.info(`Error en servidor ${error}`);
+      loggerError.error(`Error en servidor ${error}`);
+    });
   }
 }

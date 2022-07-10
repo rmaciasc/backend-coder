@@ -1,0 +1,4 @@
+Al utilizar compression sobre la ruta /infozip, se transfirieron 178B.
+Al no utilizar compression sobre la ruta /info, se transfirieron 473B.
+
+Esto significa una reducción de tamaño de más de la mitad.
